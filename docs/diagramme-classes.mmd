@@ -1,0 +1,79 @@
+classDiagram
+    direction TB
+
+    class Program {
+        +Main(args) void
+        -AfficherMenu(bibliotheque) void
+        -AjouterUnLivre(bibliotheque) void
+        -EmprunterUnLivre(bibliotheque) void
+        -RetournerUnLivre(bibliotheque) void
+        -LireEntier(question) int
+        -LireTexteObligatoire(question) string
+    }
+
+    class Bibliotheque {
+        +MaxEmpruntsParMembre : int = 3$
+        -_livres : List~Livre~
+        -_membres : List~Membre~
+        -_emprunts : List~Emprunt~
+        +Nom : string
+        +AjouterLivre(titre, auteur, annee) Livre
+        +ObtenirLivres() List~Livre~
+        +TrouverLivre(id) Livre
+        +AjouterMembre(prenom, nom) Membre
+        +ObtenirMembres() List~Membre~
+        +TrouverMembre(id) Membre
+        +CompterEmpruntsEnCours(membre) int
+        +Emprunter(idLivre, idMembre) Emprunt
+        +Retourner(idLivre) Emprunt
+        +ObtenirEmpruntsEnCours() List~Emprunt~
+        -TrouverEmpruntEnCours(livre) Emprunt
+    }
+
+    class Livre {
+        +Id : int
+        +Titre : string
+        +Auteur : string
+        +AnneePublication : int
+        +EstDisponible : bool
+        +MarquerCommeEmprunte() void
+        +MarquerCommeDisponible() void
+        +ToString() string
+    }
+
+    class Membre {
+        +Id : int
+        +Prenom : string
+        +Nom : string
+        +NomComplet : string
+        +ToString() string
+    }
+
+    class Emprunt {
+        +DureeEnJours : int = 14$
+        +Livre : Livre
+        +Membre : Membre
+        +DateEmprunt : DateTime
+        +DateRetourPrevue : DateTime
+        +DateRetour : DateTime?
+        +EstEnCours : bool
+        +Cloturer(dateRetour) void
+    }
+
+    class Exception {
+        <<classe .NET>>
+        +Message : string
+    }
+
+    class BibliothequeException {
+        +BibliothequeException(message)
+    }
+
+    Program ..> Bibliotheque : utilise
+    Bibliotheque "1" *-- "0..*" Membre : inscrits
+    Bibliotheque "1" *-- "0..*" Emprunt : emprunts
+    Bibliotheque "1" *-- "0..*" Livre : catalogue
+    Emprunt "0..*" --> "1" Membre : emprunteur
+    Emprunt "0..*" --> "1" Livre : concerne
+    Exception <|-- BibliothequeException : hérite
+    Bibliotheque ..> BibliothequeException : déclenche
