@@ -63,4 +63,4 @@ dotnet run --project GestionBibliotheque
 
 ## Auteur
 
-**Paul Giocanti** – étudiant en Bachelor (spécialité cybersécurité) au Geneva Institute of Technology, Genève · GitHub [@L4ami](https://github.com/L4ami)
+**Paul Giocanti** – étudiant en CFC d’informaticien + Bachelor (double certification, spécialité cybersécurité) au Geneva Institute of Technology, Genève · GitHub [@L4ami](https://github.com/L4ami)
