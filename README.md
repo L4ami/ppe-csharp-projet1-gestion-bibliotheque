@@ -9,7 +9,7 @@
 
 > **En une phrase :** j'ai codé en C# une application console qui gère le **catalogue**, les **membres** et les **emprunts** d'une petite bibliothèque, avec des classes métier, des exceptions maison et **19 tests manuels tous conformes**.
 
-Application console en **C# / .NET 10** qui gère le catalogue, les membres et les emprunts d'une petite bibliothèque associative.
+Application console en **C# / .NET 10** qui gère le catalogue, les membres et les emprunts d'une petite bibliothèque associative.<br>
 👉 Le rapport complet (démarche, code expliqué, jeu de tests) est dans [`docs/rendu-hackmd.md`](docs/rendu-hackmd.md).
 
 > Projet réalisé pendant la semaine PPE du cours *Algorithmique orientée C# – Concevoir et implémenter des applications* (CFC 319), classe E1B, Geneva Institute of Technology (GIT), octobre 2026.
